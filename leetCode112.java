@@ -1,4 +1,4 @@
-package LeetCode;
+
 
 public class leetCode112 {
     public class TreeNode {

@@ -1,4 +1,4 @@
-package LeetCode;
+
 /*
 给定一个二叉树，找出其最小深度。
 
