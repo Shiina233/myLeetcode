@@ -17,16 +17,17 @@ public class Exercise {
             int[] choiceNum = new int[5];
             for(int j = 0; j < n; j++){
                 char tmp = answers[j].charAt(i);
-                if(tmp == 'A')
+                if(tmp == 'A') {
                     choiceNum[0]++;
-                else if(tmp == 'B')
+                } else if(tmp == 'B') {
                     choiceNum[1]++;
-                else if(tmp == 'C')
+                } else if(tmp == 'C') {
                     choiceNum[2]++;
-                else if(tmp == 'D')
+                } else if(tmp == 'D') {
                     choiceNum[3]++;
-                else
+                } else {
                     choiceNum[4]++;
+                }
             }
             int max = 0;
             for(int j = 0; j < 5; j++){
@@ -37,9 +38,62 @@ public class Exercise {
         return maxScore;
     }
 
+
     public static void main(String[] args){
         String[] answers = {"ABCD","ABCE"};
         int[] score = {1,2,3,4};
-        System.out.println(exam(2,4,answers,score));
+        int[] test = {5,2,4,4,7,9,8};
+        reorderOddEven(test);
+        for(int element : test){
+            System.out.println(element);
+        }
     }
+
+    public interface ReorderRule{
+        boolean rule(int num);
+    }
+
+    static class isEven implements ReorderRule {
+
+        @Override
+        public boolean rule(int num) {
+            return num % 2 == 1;
+        }
+    }
+
+    static class isMinus implements ReorderRule{
+
+        @Override
+        public boolean rule(int num) {
+            return num > 0;
+        }
+    }
+
+    public static void reorderOddEven(int[] nums){
+        //var rule = new isMinus();
+        ReorderRule rule = (int num) -> num % 2 == 1;
+        reorder(nums,rule);
+    }
+
+    public static void reorder(int[] nums,ReorderRule r){
+        if(nums == null)
+            return;
+        int p1 = 0;
+        int p2 = nums.length - 1;
+        while(p1 < p2){
+            if(!r.rule(nums[p1]) && r.rule(nums[p2])){
+                int tmp = nums[p1];
+                nums[p1] = nums[p2];
+                nums[p2] = tmp;
+            }
+            if(r.rule(nums[p1])){
+                p1++;
+            }
+            if(!r.rule(nums[p2])){
+                p2--;
+            }
+        }
+    }
+
+
 }
