@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 public class Offer22 {
     public static class ListNode{
         int val;
@@ -37,7 +39,8 @@ public class Offer22 {
         return p1;
     }
 
-    public static void main(String[] args){
+    @Test
+    public void offer22Test(){
         ListNode p1 = new ListNode(1);
         ListNode p2 = new ListNode(2);
         ListNode p3 = new ListNode(3);
