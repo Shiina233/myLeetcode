@@ -42,6 +42,7 @@ public class Leetcode25 {
                 cur.next = prev;
                 prev = cur;
                 cur = next;
+                count++;
             }
             if(next != null){
                 head.next = reverseKGroup(next,k);
@@ -54,6 +55,8 @@ public class Leetcode25 {
             return head;
         }
     }
+
+
 
 
 }
