@@ -1,4 +1,10 @@
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.junit.Test;
+
+import java.io.IOException;
 
 public class Offer33 {
     public boolean verifySquenceOfBST(int[] nums){
@@ -42,5 +48,6 @@ public class Offer33 {
     public void tets(){
         int[] nums = {7,2,3};
         System.out.println(verifySquenceOfBST(nums));
+
     }
 }
